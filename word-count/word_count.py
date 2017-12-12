@@ -1,27 +1,15 @@
 import re
+
 def word_count(phrase):
-    new_phrase = phrase.lower().split(' ')
-    d = {}
-    for word in new_phrase:
-        re.findall('r[a-z]', word)
-        if d.get(word):
-            d[word] +=1
-        else:
-            d.update({word:1})
-    return d
+    	
+	words = {}
+	phrase = phrase.lower()
+	rgx = re.compile("(\w[\w']*\w|\w)")
+	phrase = rgx.findall(phrase)
+	for word in phrase:	
+		if not word in words:
+			words.update({word: 1})
+		else:
+			words[word] += 1
 
-def input_sanitizer(phrase):
-    phrase = phrase.lower().split(' ')
-    sanitized_list = []
-    for word in phrase:
-        xz = "".join(re.findall(r'[a-z]', word))
-        sanitized_list += xz
-    return sanitized_list
-
-'''
-'''TODO'''
-be able to handle one string with no spaes, or with commas seperating words.
-do a better job splitting, to avoid punctiations colons, etc
-' logic' works, need to sanitize.
-
-'''
+	return words
