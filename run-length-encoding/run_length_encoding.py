@@ -14,6 +14,8 @@ def encode(string):
             else:
                 d[char] += 1
         for key in d.keys():
+            if d[key] == 1:
+                d[key] = ''
             # add if statement to check if the value is 1, if so ommit the value?
             # below takes dict, flips it and makes it an array
             # '2','A'
@@ -25,6 +27,9 @@ def encode(string):
     
 
 def decode(string):
+    string = string
+
+
 
 
 
